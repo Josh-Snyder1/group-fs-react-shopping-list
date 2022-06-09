@@ -15,6 +15,10 @@ function ShoppingForm({addShoppingList}){
             unit: newItemUnit,
             isPurchased: newItemIsPurchased
         });
+        setNewItemName('');
+        setNewItemQty('');
+        setNewItemUnit('');
+        setNewItemIsPurchased('false');
     }   
 
     return (

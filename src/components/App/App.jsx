@@ -5,17 +5,15 @@ import Header from '../Header/Header.jsx';
 import ShoppingList from '../ShoppingList/ShoppingList';
 import ShoppingForm from '../ShoppingForm/ShoppingForm';
 
-import Header from '../Header/Header.jsx'
-import ShoppingList from '../ShoppingList/ShoppingList'
 import './App.css';
 
 //use '/items' for all endpoints
 function App() {
     let [shoppingList, setShoppingList] = useState('');
     let [newItemName, setNewItemName] = useState('');
-    // let [newItemQty, setNewItemQty] = useState('');
-    // let [newItemUnit, setNewItemUnit] = useState('');
-    // let [newItemIsPurchased, setNewItemIsPurchased] = useState('false');
+    let [newItemQty, setNewItemQty] = useState('');
+    let [newItemUnit, setNewItemUnit] = useState('');
+    let [newItemIsPurchased, setNewItemIsPurchased] = useState('false');
 
     useEffect(() => {
         getNewItem()
@@ -38,10 +36,11 @@ function App() {
     const addNewItem = (newItem) => {
         axios.post('/items', newItem)
             .then(response => {
-                setNewItemName('');
-                setNewItemQty('');
-                setNewItemUnit('');
-                setNewItemIsPurchased('false');
+                // console.log('in axios post', newitemName)
+                // setNewItemName('');
+                // setNewItemQty('');
+                // setNewItemUnit('');
+                // setNewItemIsPurchased('false');
 
                 getNewItem();
             })
