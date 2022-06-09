@@ -4,6 +4,8 @@ import Header from '../Header/Header.jsx'
 import ShoppingList from '../ShoppingList/ShoppingList'
 import axios from 'axios';
 
+import Header from '../Header/Header.jsx'
+import ShoppingList from '../ShoppingList/ShoppingList'
 import './App.css';
 import Header from '../Header/Header.jsx'
 import ShoppingForm from '../ShoppingForm/ShoppingForm'
