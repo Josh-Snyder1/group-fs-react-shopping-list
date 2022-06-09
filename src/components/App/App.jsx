@@ -4,9 +4,6 @@ import axios from 'axios';
 import Header from '../Header/Header.jsx';
 import ShoppingList from '../ShoppingList/ShoppingList';
 import ShoppingForm from '../ShoppingForm/ShoppingForm';
-
-import Header from '../Header/Header.jsx'
-import ShoppingList from '../ShoppingList/ShoppingList'
 import './App.css';
 
 //use '/items' for all endpoints
