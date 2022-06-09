@@ -7,7 +7,6 @@ import Header from '../Header/Header.jsx'
 import ShoppingForm from '../ShoppingForm/ShoppingForm'
 
 //use '/items' for all endpoints
-
 function App() {
 
     let [newItemName, setNewItemName] = useState('');
@@ -15,9 +14,9 @@ function App() {
     let [newItemUnit, setNewItemUnit] = useState('');
     let [newItemIsPurchased, setNewItemIsPurchased] = useState('false');
 
-    // useEffect(() => {
-    //     getNewItem()
-    // }, [])
+    useEffect(() => {
+        getNewItem()
+    }, [])
 
     //TODO GET request
 
