@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
+import Header from '../Header/Header.jsx'
+import ShoppingList from '../ShoppingList/ShoppingList'
 import axios from 'axios';
 
 import './App.css';
@@ -8,6 +10,20 @@ import ShoppingForm from '../ShoppingForm/ShoppingForm'
 
 //use '/items' for all endpoints
 function App() {
+    let [shoppingListItem, setShoppingList] = useState('');
+    const getNewItem = () => {
+
+        axios({
+            method: 'GET',
+            url: '/items'
+        }).then((res)=>{
+            console.log('res.data', res.data);
+            setShoppingList(res.data)
+        })
+        .catch((error)=> {
+            console.log('GET items failed', error);
+        });
+    };
 
     let [newItemName, setNewItemName] = useState('');
     let [newItemQty, setNewItemQty] = useState('');
