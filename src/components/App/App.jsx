@@ -1,16 +1,24 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
-import Header from '../Header/Header.jsx'
-import ShoppingList from '../ShoppingList/ShoppingList'
 import axios from 'axios';
+import Header from '../Header/Header.jsx';
+import ShoppingList from '../ShoppingList/ShoppingList';
+import ShoppingForm from '../ShoppingForm/ShoppingForm';
 
 import './App.css';
-import Header from '../Header/Header.jsx'
-import ShoppingForm from '../ShoppingForm/ShoppingForm'
 
 //use '/items' for all endpoints
 function App() {
-    let [shoppingListItem, setShoppingList] = useState('');
+    let [shoppingList, setShoppingList] = useState('');
+    let [newItemName, setNewItemName] = useState('');
+    // let [newItemQty, setNewItemQty] = useState('');
+    // let [newItemUnit, setNewItemUnit] = useState('');
+    // let [newItemIsPurchased, setNewItemIsPurchased] = useState('false');
+
+    useEffect(() => {
+        getNewItem()
+    }, []);
+
     const getNewItem = () => {
 
         axios({
@@ -24,17 +32,6 @@ function App() {
             console.log('GET items failed', error);
         });
     };
-
-    let [newItemName, setNewItemName] = useState('');
-    let [newItemQty, setNewItemQty] = useState('');
-    let [newItemUnit, setNewItemUnit] = useState('');
-    let [newItemIsPurchased, setNewItemIsPurchased] = useState('false');
-
-    useEffect(() => {
-        getNewItem()
-    }, [])
-
-    //TODO GET request
 
     const addNewItem = (newItem) => {
         axios.post('/items', newItem)
@@ -86,6 +83,11 @@ function App() {
             <main>
                 <p>Shopping List</p>
             </main>
+            {shoppingList.length > 0 &&
+            <ShoppingList
+                shoppingList={shoppingList}
+            />}
+
         </div>
     );
 }
