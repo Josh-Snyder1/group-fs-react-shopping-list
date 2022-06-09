@@ -5,7 +5,33 @@ const pool = require('../modules/pool.js');
 // TODO - Add routes here...
 //use '/items' for all endpoints
 
+router.get('/', (req, res) => {
+    const sqlText = `SELECT * FROM items ORDER BY name ASC;`;
+    pool.query(sqlText)
+        .then((result) => {
+            console.log(`Got back from the database`, result);
+            res.send(result.rows);
+        })
+        .catch((error) => {
+            console.log(`Error making database query ${sqlText}`, error);
+            res.sendStatus(500); // Good server always responds
+        })
+})
 
+router.post('/', (req, res) => {
+    const items = req.body;
+    const sqlText = `INSERT INTO items ("name", "qty", "unit", "isPurchased")
+                     VALUES ($1, $2, $3, $4)`;
+    pool.query(sqlText, [items.name, items.qty, items.unit, items.isPurchased])
+        .then((result) => {
+            console.log(`Added item to the database`, items);
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log(`Error making database query ${sqlText}`, error);
+            res.sendStatus(500);
+        })
+});
 
 
 router.put('/', (req, res) => {

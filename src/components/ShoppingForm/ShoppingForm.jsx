@@ -15,7 +15,7 @@ function ShoppingForm({addShoppingList}){
             unit: newItemUnit,
             isPurchased: newItemIsPurchased
         });
-    }
+    }   
 
     return (
         <>
@@ -35,7 +35,7 @@ function ShoppingForm({addShoppingList}){
                         type="text"
                         placeholder="Qty"
                         value={newItemQty}
-                        onChange={(evt) => setNewItemQty(evt.target.value)}
+                        onChange={(evt) => setNewItemQty(Number(evt.target.value))}
                     />
                     <input className="inputs"
                         type="text"
@@ -47,7 +47,7 @@ function ShoppingForm({addShoppingList}){
                 </div>
             </form>
         </>
-    )
+    );
 }
 
 export default ShoppingForm;
