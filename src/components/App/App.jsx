@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Header from '../Header/Header.jsx'
+import ShoppingList from '../ShoppingList/ShoppingList'
 import './App.css';
 
 //use '/items' for all endpoints
