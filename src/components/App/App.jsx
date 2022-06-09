@@ -15,9 +15,9 @@ function App() {
     let [newItemUnit, setNewItemUnit] = useState('');
     let [newItemIsPurchased, setNewItemIsPurchased] = useState('false');
 
-    useEffect(() => {
-        getNewItem()
-    }, [])
+    // useEffect(() => {
+    //     getNewItem()
+    // }, [])
 
     //TODO GET request
 
@@ -45,7 +45,7 @@ function App() {
                 addShoppingList={addNewItem}
             />
             <main>
-                <p>Under Construction...</p>
+                <p>Shopping List</p>
             </main>
         </div>
     );

@@ -24,25 +24,27 @@ function ShoppingForm({addShoppingList}){
                 <label>
                     Name
                 </label>
-                <input
-                    type="text"
-                    placeholder="Name"
-                    value={newItemName}
-                    onChange={(evt) => setNewItemName(evt.target.value)}
-                />
-                <input
-                    type="text"
-                    placeholder="Qty"
-                    value={newItemQty}
-                    onChange={(evt) => setNewItemQty(evt.target.value)}
-                />
-                <input
-                    type="text"
-                    placeholder="Unit"
-                    value={newItemUnit}
-                    onChange={(evt) => setNewItemUnit(evt.target.value)}
-                />
-                <button type="submit">Save</button>
+                <div>
+                    <input className="inputs"
+                        type="text"
+                        placeholder="Name"
+                        value={newItemName}
+                        onChange={(evt) => setNewItemName(evt.target.value)}
+                    />
+                    <input className="inputs"
+                        type="text"
+                        placeholder="Qty"
+                        value={newItemQty}
+                        onChange={(evt) => setNewItemQty(evt.target.value)}
+                    />
+                    <input className="inputs"
+                        type="text"
+                        placeholder="Unit"
+                        value={newItemUnit}
+                        onChange={(evt) => setNewItemUnit(evt.target.value)}
+                    />
+                    <button className="inputs" type="submit">Save</button>
+                </div>
             </form>
         </>
     )
