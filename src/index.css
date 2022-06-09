@@ -1,9 +1,41 @@
+.banner-header {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(179, 212, 165);
+  text-align: center;
+  padding: 0.25em;
+}
+
+h2 {
+  color:rgb(102, 72, 221)
+}
+
+main {
+  width: 90%;
+  margin: auto;
+  background-color: rgb(179, 212, 165);
+}
+
+.inputs {
+  box-shadow: 10px 5px 5px rgb(102, 72, 221);
+}
+
 body {
   margin: 10;
   padding: 10;
   font-family: sans-serif;
 }
 
-.inputs {
-  box-shadow: 5px 5px 5px lightgreen;
+.theShoppingListTable{
+  border-collapse: collapse;
+  width: 90%;
+  padding: 50px;
+  margin: auto;
 }
+
+tr, td, th {
+  border: solid 3px rgb(187, 213, 205);
+}
+
+tr:nth-child(even) {background: rgb(187, 213, 205)}
+tr:nth-child(odd) {background: #FFF}
