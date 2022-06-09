@@ -7,7 +7,6 @@ import Header from '../Header/Header.jsx'
 import ShoppingForm from '../ShoppingForm/ShoppingForm'
 
 //use '/items' for all endpoints
-
 function App() {
 
     let [newItemName, setNewItemName] = useState('');
@@ -69,7 +68,7 @@ function App() {
                 addShoppingList={addNewItem}
             />
             <main>
-                <p>Under Construction...</p>
+                <p>Shopping List</p>
             </main>
         </div>
     );
