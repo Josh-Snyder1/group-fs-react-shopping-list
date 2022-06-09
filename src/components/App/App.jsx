@@ -36,6 +36,30 @@ function App() {
             })
     };
 
+    const deleteItem = (deleteItemId => {
+        axios.delete('/items', deleteItemId)
+            .then(response => {
+                console.log('in app deleteItem axios.delete')
+            })
+            .catch(err => {
+                console.log('error deleting item', err)
+            });
+    });
+
+    const updateItem = (updateItemId => {
+        axios({
+            method: 'PUT',
+            url: '/students',
+            data: updatedItemInfo
+        })
+        .then(response => {
+            console.log('in app updateItem axios.then')
+        })
+        .catch(err => {
+            alert('error updating students')
+        });
+    });
+
     console.log('New Item added:', newItemName);
     
     return (
