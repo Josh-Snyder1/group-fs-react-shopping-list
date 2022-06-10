@@ -62,19 +62,18 @@ function App() {
             });
     });
 
-    const updateItem = (updateItemId => {
-        axios({
-            method: 'PUT',
-            url: '/students',
-            data: updatedItemInfo
-        })
-        .then(response => {
-            console.log('in app updateItem axios.then')
-            //change value of class itemDelete to "purchased"
-        })
-        .catch(err => {
-            alert('error updating students')
-        });
+    const updateItem = (id => {
+        console.log('click updateItem',id)
+        axios.put(`/items/${id}`)
+            .then(response => {
+                console.log('in app updateItem axios.then')
+                getNewItem();
+                //change value of class itemDelete to "purchased"
+                
+            })
+            .catch(err => {
+                alert('error updating items in app axios.put.catch')
+            })
     });
 
     // console.log('New Item added:', newItemName);
@@ -92,6 +91,7 @@ function App() {
             <ShoppingList
                 shoppingList={shoppingList}
                 deleteItem={deleteItem}
+                updateItem={updateItem}
             />}
 
         </div>
