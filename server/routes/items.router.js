@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     const sqlText = `SELECT * FROM items ORDER BY name ASC;`;
     pool.query(sqlText)
         .then((result) => {
-            console.log(`Got back from the database`, result);
+            // console.log(`Got back from the database`, result);
             res.send(result.rows);
         })
         .catch((error) => {
@@ -56,14 +56,16 @@ router.put('/', (req, res) => {
     });
 });
 
-router.delete('/', (req, res) => {
+router.delete('/:id', (req, res) => {
     //delete from database sql command
+    console.log('in router.delete',req.params.id)
     const sqlText = `
-    DELETE from items
+    DELETE from "items"
     WHERE id = $1`
     //which id to delete from items
-    const sqlParams = req.params.id;
+    const sqlParams = [req.params.id];
     //send query to database
+
     pool.query(sqlText, sqlParams)
     .then((result) => {
         res.send(result.row);

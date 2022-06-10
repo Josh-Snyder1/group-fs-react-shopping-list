@@ -1,4 +1,4 @@
-function ShoppingList({shoppingList}) {
+function ShoppingList({shoppingList, deleteItem}) {
  console.log("this is the list:", shoppingList);
     return (
         <>
@@ -17,7 +17,7 @@ function ShoppingList({shoppingList}) {
                         <td>{shoppingList.qty}</td>
                         <td>{shoppingList.unit}</td>
                         <td>{shoppingList.isPurchased}<button className="buyBtn">Buy</button></td>
-                        <td><button className="itemDelete">Delete</button></td>
+                        <td><button onClick={() => deleteItem(shoppingList.id)} className="itemDelete">Delete</button></td>
                     </tr>
                     )}
                 </tbody>

@@ -49,10 +49,13 @@ function App() {
             })
     };
 
-    const deleteItem = (deleteItemId => {
-        axios.delete('/items', deleteItemId)
+    const deleteItem = (id => {
+        console.log('click', id);
+
+        axios.delete(`/items/${id}`, id)
             .then(response => {
                 console.log('in app deleteItem axios.delete')
+                getNewItem();
             })
             .catch(err => {
                 console.log('error deleting item', err)
@@ -67,13 +70,14 @@ function App() {
         })
         .then(response => {
             console.log('in app updateItem axios.then')
+            //change value of class itemDelete to "purchased"
         })
         .catch(err => {
             alert('error updating students')
         });
     });
 
-    console.log('New Item added:', newItemName);
+    // console.log('New Item added:', newItemName);
     
     return (
         <div className="App">
@@ -87,6 +91,7 @@ function App() {
             {shoppingList.length > 0 &&
             <ShoppingList
                 shoppingList={shoppingList}
+                deleteItem={deleteItem}
             />}
 
         </div>
