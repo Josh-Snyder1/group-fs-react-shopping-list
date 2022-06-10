@@ -4,7 +4,7 @@ function ShoppingList({shoppingList}) {
         <>
         <h2>Shopping List</h2>
         <div>
-            <table>
+            <table className="theShoppingListTable">
                 <thead>
                     <tr>
                         <th>Items</th>
