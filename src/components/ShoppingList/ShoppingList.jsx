@@ -1,5 +1,6 @@
-function ShoppingList({shoppingList, deleteItem}) {
+function ShoppingList({shoppingList, deleteItem, updateItem}) {
  console.log("this is the list:", shoppingList);
+
     return (
         <>
         <h2>Shopping List</h2>
@@ -16,7 +17,12 @@ function ShoppingList({shoppingList, deleteItem}) {
                         <td>{shoppingList.name}</td>
                         <td>{shoppingList.qty}</td>
                         <td>{shoppingList.unit}</td>
-                        <td>{shoppingList.isPurchased}<button className="buyBtn">Buy</button></td>
+                        <td>{shoppingList.isPurchased}
+                            {shoppingList.isPurchased ?
+                                <button className="buyBtn">Purchased</button>
+                                :
+                                <button className="buyBtn" onClick={() => updateItem(shoppingList.id)} >Buy</button>}
+                            </td>
                         <td><button onClick={() => deleteItem(shoppingList.id)} className="itemDelete">Delete</button></td>
                     </tr>
                     )}

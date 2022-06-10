@@ -34,17 +34,18 @@ router.post('/', (req, res) => {
 });
 
 
-router.put('/', (req, res) => {
+router.put('/:id', (req, res) => {
     //update database
+    console.log('in router.put',req.params.id)
     const sqlText = `
-        UPDATE items
-        SET isPurchased = $2
+        UPDATE "items"
+        SET "isPurchased" = 'true'
         WHERE id = $1`
     //set variables for params
     const deleteId = req.params.id;
-    const isPurchased = req.params.isPurchased;
+    // const isPurchased = req.body.isPurchased;
     //assign variables to params
-    const sqlParams = [deleteId, isPurchased];
+    const sqlParams = [deleteId];
     //send sql query to database
     pool.query(sqlText,sqlParams)
     .then((result) => {
